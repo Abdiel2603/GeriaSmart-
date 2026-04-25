@@ -1,0 +1,35 @@
+/* Global Styles */
+
+/* Cliente styles */
+#client-main {
+    background: #013970;
+    background-image: radial-gradient(at left top, rgba(0, 35, 51, 0.85), rgba(1, 57, 112, 0.20)), url("../img/main-section.jpg");
+    /* background-image: url('../assets/img/main-section.jpg'); */
+    background-size: cover;
+    /* La imagen cubre todo el contenedor */
+    background-position: center;
+    /* La imagen se centra */
+    background-repeat: no-repeat;
+    /* La imagen no se repite */
+    padding: 100px 0;
+    /* Padding arriba y abajo */
+}
+
+#client-benefits i {
+    font-size: 8vw;
+}
+
+h3 {
+    font-size: 17px;
+}
+
+/* Admin styles */
+#admin-nav {
+    min-height: 100vh;
+    flex-basis: 280px;
+    flex-shrink: 0;
+}
+
+#admin-main {
+    flex-grow: 1;
+}

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<title>Politicas de uso</title>
+<style>
+    /* ==========================================================================
+    Todos los estilos generales
+    ========================================================================== */
+    /* Estilo general del scroll */
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    /* Fondo de la barrita */
+    ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        border-radius: 30px;
+    }
+
+    /* Esto modifica a la barrita del scroll */
+    ::-webkit-scrollbar-thumb {
+        background: #1a1a1a;
+        border-radius: 8px;
+        border: 2px solid #ffffff;
+        transition: all .2s ease;
+    }
+
+    /* Efecto hover de la barrita */
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #26c26d 0%, #2abfff 100%);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    }
+
+    /* Botón superior - flecha hacia arriba */
+    ::-webkit-scrollbar-button:single-button:vertical:decrement {
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231a1a1a"><path d="M7 14l5-5 5 5z"/></svg>') center/25px no-repeat;
+        background-color: #26c26d;
+        border-radius: 4px 4px 0 0;
+        margin: 5px;
+    }
+
+    /* Botones arriba y abajo del scroll */
+    ::-webkit-scrollbar-button:single-button:vertical:increment {
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231a1a1a"><path d="M7 10l5 5 5-5z"/></svg>') center/25px no-repeat;
+        background-color: #26c26d;
+        border-radius: 0 0 4px 4px;
+        margin: 5px;
+    }
+
+    /* Efecto hover para los botones */
+    ::-webkit-scrollbar-button:single-button:vertical:decrement:hover,
+    ::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+        background-color: #2abfff;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #ffffff;
+        color: #1a1a1a;
+        margin: 0;
+        font-weight: 520;
+        font-size: 20px;
+        overflow-x: hidden;
+        min-height: 100vh;
+        position: relative;
+        padding-left: 70px; /* Esto es para mover el contenido de la página cuando la sidebar esté visible */
+        transition: padding-left 0.3s ease;
+    }
+
+    .main-content {
+        width: 100%;
+        min-height: 100vh;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    h1 {
+        font-family: 'Raleway', sans-serif;
+        font-size: 48px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 40px;
+        text-shadow: rgba(0, 0, 0, 0.5) 0px 4px 2px;
+        transition: color 0.3s ease;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 28px;
+        text-align: center;
+        transition: color 0.3s ease;
+    }
+
+    h3 {
+        font-size: 15px;
+        text-align: center;
+        transition: color 0.3s ease;
+    }
+
+    .icon {
+        font-size: 25px;
+        -webkit-text-stroke: 1px;
+    }
+
+    .btns {
+        align-items: stretch;
+        justify-content: center;
+        max-height: 60px;
+    }
+
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: center;
+        text-align: center;
+        gap: 10px;
+        padding: 15px 20px;
+        background: #26c26d;
+        border-radius: 50px;
+        border: 3.3px solid #9eeac1;
+        font-size: medium;
+        font-weight: 700;
+        color: #1a1a1a;
+        box-shadow: rgb(42, 119, 79) 0 3px 0, rgba(0, 0, 0, 0.3) 0 9px 12px;
+        transition: transform .2s ease, color .2s ease, background .2s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+        border: 3.3px solid #ffffff;
+        background: #71dca2;
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .btn:active { /* Solo se activa cuando damos click al boton */
+        transform: translateY(1px) !important;
+        color: #ffffff !important;
+        background: #2abfff !important;
+        border-color: #ffffff !important;
+        transition: all 0.1s ease !important;
+    }
+
+    .btn-secondary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: center;
+        text-align: center;
+        gap: 10px;
+        padding: 15px 20px;
+        border-radius: 50px;
+        border: 3.3px solid #b3b3b3;
+        background: #fff;
+        font-weight: 700;
+        font-size: medium;
+        color: #1a1a1a;
+        white-space: nowrap;
+        box-shadow: rgb(116, 116, 116) 0 3px 0, rgba(0, 0, 0, 0.3) 0 9px 12px;
+        transition: all .2s ease;
+    }
+
+    .btn-secondary:hover {
+        border: 3.3px solid #8d8d8d;
+        background: #d1d1d1;
+        color: #1a1a1a;
+        transition: all .2s ease;
+    }
+
+    .btn-secondary:active {
+        transform: translateY(1px) !important;
+        border: 3.3px solid #b3b3b3;
+        background: #a0a0a0;
+        color: #ffffff;
+        transition: all .2s ease;
+    }
+
+    .btn-void {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: center;
+        text-align: center;
+        gap: 10px;
+        padding: 15px 20px;
+        background: transparent;
+        border-radius: 50px;
+        border: 3.3px solid #1a1a1a;
+        font-weight: 700;
+        font-size: medium;
+        color: #1a1a1a;
+        white-space: nowrap;
+        transition: transform .2s ease, color .2s ease, background .2s ease;
+    }
+
+    .btn-void:hover {
+        background: #1a1a1a;
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .btn-void:active {
+        border: 3.3px solid #2167b9;
+        background: #2abfff;
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .btn-edit:hover {
+        background: #2abfff;
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .btn-edit:active {
+        background: #176786;
+    }
+
+    .btn-delete {
+        display: inline-block;
+        padding: 15px 20px;
+        background: transparent;
+        border-radius: 50px;
+        border: 3.3px solid #ff2a75;
+        font-weight: 700;
+        font-size: medium;
+        color: #ff2a75;
+        white-space: nowrap;
+        transition: transform .2s ease, color .2s ease, background .2s ease;
+    }
+
+    .btn-delete:hover {
+        background: #ff2a75;
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .btn-delete:active {
+        background: #8b1740;
+    }
+
+    .btn-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: invert(1);
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+        background: #ffffff;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+        align-items: flex-end;
+        transform: translateX(0); /* Mostrar por defecto */
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    /* Sección donde va el logo en la sidebar */
+    .sidebar-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+
+    /* Esto contiene la imagen del logo, aparte lo centra */
+    .sidebar-header a {
+        display: flex;
+        justify-content: left;
+        margin-right: 20px;
+    }
+    
+    .sidebar-header img {
+        width: 80%;
+        height: auto;
+        max-width: 250px;
+    }
+    
+    .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        margin-left: 100px;
+        padding: 0 15px;
+    }
+
+    /* Esto modifica el estilo de las opciones de la sidebar */
+    .sidebar-nav a {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        color: rgb(26, 26, 26);
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        transition: all 0.3s ease;
+    }
+
+    /* Esto modifica a los íconos de la sidebar */
+    .sidebar-nav a i {
+        margin-right: 10px;
+        font-size: 18px;
+        width: 24px;
+        text-align: center;
+    }
+
+    .sidebar-nav a:hover {
+        background: rgba(38, 194, 109, 0.65);
+        color: #1a1a1a;
+    }
+
+    /* Fondo cuando una opcion del sidebar está seleccionada */
+    .sidebar-nav a.active {
+        background: rgba(42, 191, 255, 0.7);
+    }
+
+    .sidebar-checkbox {
+        display: none;
+    }
+    
+    /* Botón cuando la sidebar está contraida */
+    .sidebar-toggle {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        background: #26c26d;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+    
+    /* Botón de X para cerrar la sidebar en responsivo */
+    .close-sidebar {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+        display: none;
+    }
+
+    /* Overlay del menú */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+    }
+
+    /* Icono del boton toggle cuando la sidebar está contraida */
+    .sidebar-toggle i {
+        font-size: 20px;
+    }
+
+    /* ==========================================================================
+   Politicas
+   ========================================================================== */
+    .politicas {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #ffffff;
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    .politicas .container {
+        max-width: 1400px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra horizontalmente */
+        padding: 20px;
+        text-align: center; /* Centra el texto */
+    }
+
+    .politicas-list {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .section-politica {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        min-height: 60px;
+        padding: 20px;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        background: #dadada;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .politica {
+        text-align: left;
+        justify-items: left;
+        margin-bottom: 20px;
+
+    }
+
+    /* ==========================================================================
+    Animaciones
+    ========================================================================== */
+
+    .reveal-static {
+        opacity: 0;
+        animation: appear .72s ease forwards;
+    }
+
+    @keyframes appear {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* ==========================================================================
+    Responsividad
+    ========================================================================== */
+
+    @media (max-width: 992px) {
+        h1 {
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 32px;
+        }
+
+        body {
+            padding-left: 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            width: 250px;
+        }
+
+        .sidebar-checkbox:checked ~ .sidebar {
+            transform: translateX(0);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar-toggle {
+            display: flex;
+            z-index: 1001;
+        }
+
+        .close-sidebar {
+            display: block;
+            z-index: 1002;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            z-index: 999;
+        }
+
+        .sidebar-checkbox:checked ~ .sidebar-overlay {
+            display: block;
+        }
+
+        .main-content {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .politicas-list {
+            width: 95%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .sidebar-header a {
+            margin-left: 15px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+    }
+
+    @media (min-width: 993px) {
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: auto;
+            max-width: 300px;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar-toggle, .close-sidebar {
+            display: none;
+        }
+
+        .sidebar-overlay {
+            display: none !important;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+    }
+</style>
+<head></head>
+<body class="reveal-static">
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+
+    <label for="sidebar-toggle" class="sidebar-toggle">
+        <i class="bi bi-list"></i>
+    </label>
+
+    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <label for="sidebar-toggle" class="close-sidebar">
+                <i class="bi bi-x-lg"></i>
+            </label>
+            <a href="index.php">
+                <img src="assets/img/logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#usogeneral">
+                <i class="bi bi-database-fill"></i>
+                <span>Recolección de datos</span>
+            </a>
+            <a href="#privacidad">
+                <i class="bi bi-graph-up-arrow"></i>
+                <span>Uso de información</span>
+            </a>
+            <a href="#geriaband">
+                <i class="bi bi-shield-lock-fill"></i>
+                <span>Protección y seguridad</span>
+            </a>
+            <a href="#interacciones">
+                <i class="bi bi-share-fill"></i>
+                <span>Compartición</span>
+            </a>
+            <a href="#responsabilidad">
+                <i class="bi bi-person-check-fill"></i>
+                <span>Derechos del usuario</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <section class="politicas">
+            <div class="container">
+                <h1>Políticas de privacidad</h1>
+                <p>Las siguientes políticas explican cómo protegemos y usamos tus datos personales para garantizar tu privacidad y seguridad.
+                </p>
+
+                <div class="politicas-list">
+                    <section class="section-politica" id="usogeneral">
+                        <h1>1. Recolección de datos personales</h1>
+                        <div class="politica">
+                            <h2>1.1 Información proporcionada por el usuario</h2>
+                            <p>Recolectamos datos como nombre, correo, edad y teléfono cuando el usuario se registra o actualiza su perfil en la plataforma.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>1.2 Datos generados por el uso del sistema</h2>
+                            <p>Durante el uso de la GeriaBand o la app, se recopilan signos vitales, alertas y patrones de comportamiento para mejorar la experiencia y brindar atención personalizada.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>1.3 Datos técnicos y de navegación</h2>
+                            <p>El sistema puede registrar información técnica como dispositivo utilizado, fecha de acceso, dirección IP y actividad dentro de la aplicación.</p>
+                        </div>
+                    </section>
+
+                    <section class="section-politica" id="privacidad">
+                        <h1>2. Uso de la información recopilada</h1>
+                        <div class="politica">
+                            <h2>2.1 Mejora del servicio</h2>
+                            <p>Los datos personales y médicos se utilizan para ofrecer monitoreo preciso, reportes históricos y funciones automatizadas de apoyo al usuario.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>2.2 Personalización de la experiencia</h2>
+                            <p>La información se almacena en bases de datos seguras, siguiendo estándares de protección para datos sensibles en sistemas médicos y de cuidado.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>2.3 Cumplimiento legal y administrativo</h2>
+                            <p>La información puede utilizarse para cumplir regulaciones de salud, auditorías o requerimientos legales aplicables.</p>
+                        </div>
+                    </section>
+
+                    <section class="section-politica" id="geriaband">
+                        <h1>3. Protección y seguridad de los datos</h1>
+                        <div class="politica">
+                            <h2>3.1 Encriptación de la información</h2>
+                            <p>Los datos sensibles, especialmente los de salud, se encriptan tanto en tránsito como en almacenamiento para garantizar confidencialidad.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>3.2 Acceso limitado</h2>
+                            <p>Solo el usuario, su cuidador vinculado y administradores autorizados pueden acceder a los datos necesarios para su función específica.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>3.3 Evaluación continua</h2>
+                            <p>El sistema aplica medidas de seguridad actualizadas regularmente para prevenir accesos no autorizados, vulneraciones o pérdidas de información.</p>
+                        </div>
+                    </section>
+
+                    <section class="section-politica" id="interacciones">
+                        <h1>4. Compartición y transferencia de datos</h1>
+                        <div class="politica">
+                            <h2>4.1 Sin venta de datos</h2>
+                            <p>GeriaSmart no vende, alquila ni comercializa información personal o médica de los usuarios.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>4.2 Transferencias autorizadas</h2>
+                            <p>ELa información solo puede compartirse con terceros autorizados (como médicos, instituciones de salud o cuidadores) con consentimiento previo del usuario.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>4.3 Cumplimiento ante requerimientos legales</h2>
+                            <p>En caso de una solicitud oficial de autoridades reguladoras, los datos podrían ser compartidos únicamente bajo estrictos criterios legales.</p>
+                        </div>
+                    </section>
+
+                    <section class="section-politica" id="responsabilidad">
+                        <h1>5. Derechos del usuario</h1>
+                        <div class="politica">
+                            <h2>5.1 Derecho de acceso</h2>
+                            <p>El usuario puede solicitar ver qué información tiene el sistema y cómo ha sido utilizada.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>5.2 Corrección y actualización</h2>
+                            <p>El usuario puede modificar sus datos personales o solicitar su corrección si son incorrectos o están desactualizados.</p>
+                        </div>
+                        <div class="politica">
+                            <h2>5.3 Eliminación de datos</h2>
+                            <p>El usuario puede pedir la eliminación de su información personal y médica, salvo cuando exista obligación legal de conservarla (por registros médicos o auditorías).</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<footer>
+</footer>
+    </div>
+
+    <script src="./assets/js/sidebarfocus.js"></script>
+</body>
+</html>
